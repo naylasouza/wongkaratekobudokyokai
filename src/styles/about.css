@@ -1,0 +1,51 @@
+.about{
+
+padding:120px 10%;
+background:white;
+
+}
+
+.about-title{
+
+font-size:40px;
+text-align:center;
+margin-bottom:100px;
+
+}
+
+.about-block{
+
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:70px;
+align-items:center;
+margin-bottom:120px;
+
+}
+
+.about-block.reverse{
+
+direction:rtl;
+
+}
+
+.about-block.reverse div{
+
+direction:ltr;
+
+}
+
+.about-block img{
+
+width:60%;
+border-radius:6px;
+
+}
+
+.about-block p{
+
+font-size:18px;
+line-height:1.7;
+margin-bottom:18px;
+
+}

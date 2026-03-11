@@ -1,0 +1,60 @@
+.karate-page{
+padding:120px 12%;
+background:white;
+}
+
+.karate-title{
+font-size:42px;
+text-align:center;
+margin-bottom:60px;
+}
+
+.karate-content{
+max-width:900px;
+margin:auto;
+}
+
+.karate-content h2{
+margin-top:50px;
+margin-bottom:20px;
+font-size:30px;
+}
+
+.karate-content h3{
+margin-top:40px;
+font-size:24px;
+}
+
+.karate-content p{
+font-size:18px;
+line-height:1.8;
+margin-bottom:20px;
+}
+
+.karate-content ul{
+margin:20px 0;
+padding-left:25px;
+}
+
+.karate-content li{
+margin-bottom:10px;
+font-size:18px;
+}
+
+blockquote{
+font-size:20px;
+font-style:italic;
+margin:30px 0;
+padding-left:20px;
+border-left:4px solid #b70c11;
+}
+
+.source{
+font-size:14px;
+opacity:0.7;
+}
+
+.final-quote{
+font-size:22px;
+font-weight:500;
+}

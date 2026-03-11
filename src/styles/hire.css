@@ -1,0 +1,35 @@
+.hire{
+
+padding:60px 120px;
+background:white;
+
+}
+
+.hire-grid{
+
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:20px;
+
+margin-top:20px;
+
+}
+
+textarea{
+
+grid-column:span 2;
+height:100px;
+
+}
+
+.hire button{
+
+margin-top:20px;
+
+background:#3b82f6;
+color:white;
+border:none;
+
+padding:12px 20px;
+
+}
