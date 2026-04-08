@@ -10,9 +10,10 @@ const videos = [
 
 export default function VideoLibrary(){
 
-  const handleOpen = (id) => {
-    window.open(`https://www.youtube.com/watch?v=${id}`, "_blank")
-  }
+  const handleOpen = (id: string) => { 
+  window.open(`https://www.youtube.com/watch?v=${id}`, "_blank")
+}
+
 
   const mainVideo = videos[0]
   const sideVideos = videos.slice(1, 5)
