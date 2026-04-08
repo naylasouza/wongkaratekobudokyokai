@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom"
 
 import Navbar from "../components/Navbar"
 import Hero from "../components/Hero"
-import FocusSection from "../components/FocusSection"
+// import FocusSection from "../components/FocusSection"
 import VideoLibrary from "../components/VideoLibrary"
 import HireSection from "../components/HireSection"
 import Footer from "../components/Footer"

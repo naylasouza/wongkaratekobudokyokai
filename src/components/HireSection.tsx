@@ -1,9 +1,27 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, type ChangeEvent, type FormEvent } from "react"
 import "../styles/hire.css"
+
+interface FormState {
+  nome: string;
+  cidade: string;
+  pais: string;
+  email: string;
+  assunto: string;
+  mensagem: string;
+}
+
+interface FormErrors {
+  nome?: string;
+  cidade?: string;
+  pais?: string;
+  email?: string;
+  assunto?: string;
+  mensagem?: string;
+}
 
 export default function HireSection(){
 
-  const [form, setForm] = useState({
+  const [form, setForm] = useState<FormState>({
     nome: "",
     cidade: "",
     pais: "",
@@ -12,22 +30,25 @@ export default function HireSection(){
     mensagem: ""
   })
 
-  const [errors, setErrors] = useState({})
+  const [errors, setErrors] = useState<FormErrors>({})
 
-  const handleChange = (e) => {
+  // Tipamos o evento de mudança para aceitar input, select e textarea
+  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    
     setForm({
       ...form,
-      [e.target.name]: e.target.value
+      [name]: value
     })
 
     setErrors({
       ...errors,
-      [e.target.name]: ""
+      [name]: ""
     })
   }
 
   const validate = () => {
-    const newErrors = {}
+    const newErrors: FormErrors = {}
 
     if(!form.nome) newErrors.nome = "Preencha seu nome"
     if(!form.cidade) newErrors.cidade = "Preencha sua cidade"
@@ -39,7 +60,7 @@ export default function HireSection(){
     return newErrors
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault()
 
     const validationErrors = validate()
@@ -72,15 +93,10 @@ export default function HireSection(){
   }, [])
 
   return(
-
     <section id="contato" className="hire">
-
-      <h2 className="fade-in">
-        Entre em contato
-      </h2>
+      <h2 className="fade-in">Entre em contato</h2>
 
       <form className="hire-grid fade-in" onSubmit={handleSubmit}>
-
         <div>
           <input 
             placeholder="Nome"
@@ -129,12 +145,12 @@ export default function HireSection(){
             onChange={handleChange}
           >
             <option value="">Selecione o assunto</option>
-            <option>Treinamento para exame de faixa</option>
-            <option>Seminário</option>
-            <option>Aula de defesa pessoal individual</option>
-            <option>Aula de defesa pessoal coletiva</option>
-            <option>Entrevista</option>
-            <option>Podcast</option>
+            <option value="Treinamento para exame de faixa">Treinamento para exame de faixa</option>
+            <option value="Seminário">Seminário</option>
+            <option value="Aula de defesa pessoal individual">Aula de defesa pessoal individual</option>
+            <option value="Aula de defesa pessoal coletiva">Aula de defesa pessoal coletiva</option>
+            <option value="Entrevista">Entrevista</option>
+            <option value="Podcast">Podcast</option>
           </select>
           {errors.assunto && <span className="error">{errors.assunto}</span>}
         </div>
@@ -149,14 +165,8 @@ export default function HireSection(){
           {errors.mensagem && <span className="error">{errors.mensagem}</span>}
         </div>
 
-        <button type="submit">
-          Enviar solicitação
-        </button>
-
+        <button type="submit">Enviar solicitação</button>
       </form>
-
     </section>
-
   )
-
 }
