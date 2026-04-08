@@ -15,10 +15,10 @@ return(
 <Navbar/>
 <Hero/>
 <About/>
-<VideoLibrary/>
-<FocusSection/>
+{/* <VideoLibrary/> */}
+{/* <FocusSection/>
 <HireSection/>
-<Footer/>
+<Footer/> */}
 
 </div>
 

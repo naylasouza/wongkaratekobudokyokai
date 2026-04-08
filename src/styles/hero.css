@@ -1,70 +1,122 @@
 .hero{
 
-height:520px;
-background-image:url("../assets/images/6.png");
-background-size:68%;
-background-position:100% center;
-background-repeat:no-repeat;
-background-color:black;
-display:flex;
-align-items:center;
-padding-left:100px;
-color:white;
+  height:clamp(420px, 70vh, 650px);
+
+  display:flex;
+  align-items:center;
+  justify-content:flex-start;
+
+  padding:0 8%;
+
+  background-color:black;
+  background-image:url("../assets/images/6.png");
+  background-repeat:no-repeat;
+  background-position:right center;
+  background-size:contain;
+
+  color:white;
 
 }
 
 .hero-content{
 
-display:flex;
-flex-direction:column;
-gap:18px;
+  /* max-width:520px; */
+  width:100%;
+
+  display:flex;
+  flex-direction:column;
+  gap:14px;
 
 }
 
 .hero-label{
 
-font-size:18px;
-letter-spacing:6px;
-text-transform:uppercase;
-opacity:0.7;
-
-}
-
-.hero-credentials{
-
-font-size:14px;
-letter-spacing:6px;
-text-transform:uppercase;
-opacity:0.7;
+  font-size:clamp(12px, 2vw, 14px);
+  letter-spacing:4px;
+  text-transform:uppercase;
+  opacity:0.7;
 
 }
 
 .hero-name{
 
-font-size:72px;
-font-weight:700;
-line-height:1.05;
-margin: 0;
+  font-size:clamp(32px, 5vw, 64px);
+  font-weight:700;
+  line-height:1.05;
+  margin:0;
 
 }
 
+.hero-credentials{
+
+  font-size:clamp(12px, 2vw, 13px);
+  letter-spacing:2px;
+  text-transform:uppercase;
+  opacity:0.7;
+
+}
 
 .seminar-btn{
 
-background:#b70c11;
-width: 239px;
-color:white;
-border:none;
-padding:16px 32px;
-font-size:15px;
-font-weight:600;
-margin-top:-8px;
-cursor:pointer;
-transition:0.3s;
+  background:#b70c11;
+  width:100%;
+  max-width:240px;
+
+  color:white;
+  border:none;
+
+  padding:12px 20px;
+  font-size:14px;
+  font-weight:600;
+
+  cursor:pointer;
+  transition:0.3s;
 
 }
 
 .seminar-btn:hover{
 
-background:#d11217;
+  background:#d11217;
+
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+  .hero{
+
+    height:auto;
+    min-height:420px;
+
+    padding:100px 16px 60px;
+
+    background-size:cover;
+    background-position:center;
+
+    justify-content:center;
+
+    position:relative;
+
+  }
+
+  .hero::before{
+
+    content:"";
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,0.6);
+
+  }
+
+  .hero-content{
+
+    position:relative;
+    z-index:1;
+
+    align-items:center;
+    text-align:center;
+
+  }
+
 }

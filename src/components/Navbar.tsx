@@ -1,41 +1,45 @@
+import { useState } from "react"
 import "../styles/navbar.css"
 import logo from "../assets/images/logo.jpg"
 import { Link } from "react-router-dom"
 
 export default function Navbar(){
 
-return(
+  const [open, setOpen] = useState(false)
 
-<nav className="navbar">
+  return(
 
-<div className="logo">
-<img src={logo} alt="Wong Karate-Do" />
-</div>
+    <nav className="navbar">
 
-<ul className="menu">
+      <div className="navbar-container">
 
-<li>
-<Link to="/">HOME</Link>
-</li>
+        <div className="logo">
+          <img src={logo} alt="Wong Karate-Do" />
+        </div>
 
-<li>
-<a href="#about">O SENSEI</a>
-</li>
+        <ul className={`menu ${open ? "open" : ""}`}>
 
-<li>VÍDEOS</li>
+          <li><Link to="/" onClick={() => setOpen(false)}>HOME</Link></li>
+          <li><a href="#about" onClick={() => setOpen(false)}>O SENSEI</a></li>
+          <li>VÍDEOS</li>
+          <li><Link to="/karate" onClick={() => setOpen(false)}>O KARATE</Link></li>
+          <li>NOTÍCIAS</li>
+          <li>CONTATO</li>
 
-<li>
-<Link to="/karate">O KARATE</Link>
-</li>
+        </ul>
 
-<li>NOTÍCIAS</li>
+        <div 
+          className={`hamburger ${open ? "active" : ""}`} 
+          onClick={() => setOpen(prev => !prev)}
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
 
-<li>CONTATO</li>
+      </div>
 
-</ul>
+    </nav>
 
-</nav>
-
-)
-
+  )
 }
