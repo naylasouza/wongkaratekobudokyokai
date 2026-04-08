@@ -21,10 +21,10 @@ export default function Navbar(){
 
           <li><Link to="/" onClick={() => setOpen(false)}>HOME</Link></li>
           <li><a href="#about" onClick={() => setOpen(false)}>O SENSEI</a></li>
-          <li>VÍDEOS</li>
-          <li><Link to="/karate" onClick={() => setOpen(false)}>O KARATE</Link></li>
-          <li>NOTÍCIAS</li>
-          <li>CONTATO</li>
+          <li><a href="#video" onClick={() => setOpen(false)}>VÍDEOS</a></li>
+          {/* <li><Link to="/karate" onClick={() => setOpen(false)}>O KARATE</Link></li> */}
+          {/* <li>NOTÍCIAS</li> */}
+          <li><a href="#contato" onClick={() => setOpen(false)}>CONTATO</a></li>
 
         </ul>
 

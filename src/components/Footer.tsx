@@ -6,7 +6,17 @@ return(
 
 <footer className="footer">
 
-<p>© 2026 Sensei Wong</p>
+<p>
+  © Desenvolvido por{" "}
+  <a 
+    href="https://naylasouzaribeiro.com.br" 
+    target="_blank" 
+    rel="noopener noreferrer"
+    className="footer-link"
+  >
+    Nayla
+  </a>
+</p>
 
 </footer>
 

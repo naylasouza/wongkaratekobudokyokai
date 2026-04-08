@@ -20,9 +20,9 @@ export default function Hero(){
           8º Dan Karate-Do <br/> Discípulo de Yoshihide Shinzato
         </p>
 
-        <button className="seminar-btn">
+        <a href="#contato" className="seminar-btn">
           AGENDAR SEMINÁRIO
-        </button>
+        </a>
 
       </div>
 

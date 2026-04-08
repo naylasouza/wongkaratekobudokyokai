@@ -1,40 +1,72 @@
 import "../styles/videoLibrary.css"
 
+const videos = [
+  { id: "dVw07IDIiQY", title: "REVISTA MASTER OFICIAL" },
+  { id: "GEo0Pff8HtE", title: "TV POLO: PODCAST " },
+  { id: "yzUfkGJjFU4", title: "DEMONSTRAÇÃO  DE KARATE" },
+  { id: "twfmLk_kKP0", title: "LIVRO GRANDES MESTRES" },
+  { id: "vA7li_4txlU", title: "APLICAÇÃO CORRETA" },
+]
+
 export default function VideoLibrary(){
 
-return(
+  const handleOpen = (id) => {
+    window.open(`https://www.youtube.com/watch?v=${id}`, "_blank")
+  }
 
-<section className="video-library">
+  const mainVideo = videos[0]
+  const sideVideos = videos.slice(1, 5)
 
-<h2>Explore the Sensei's Video Library</h2>
+  return(
 
-<div className="video-main">
+    <section id="video" className="video-library">
 
-<iframe
-width="560"
-height="315"
-src="https://www.youtube.com/embed/6tYz5p6R4hQ"
-title="YouTube video"
-allowFullScreen
-/>
+      <h2 className="video-title">
+        Vídeos do Sensei
+      </h2>
 
-<div className="video-thumbs">
+      <div className="video-layout">
 
-<img src="https://img.youtube.com/vi/6tYz5p6R4hQ/0.jpg"/>
-<img src="https://img.youtube.com/vi/5qap5aO4i9A/0.jpg"/>
-<img src="https://img.youtube.com/vi/aqz-KE-bpKQ/0.jpg"/>
-<img src="https://img.youtube.com/vi/L_jWHffIx5E/0.jpg"/>
+        <div 
+          className="video-main"
+          onClick={() => handleOpen(mainVideo.id)}
+        >
+          <img src={`https://img.youtube.com/vi/${mainVideo.id}/maxresdefault.jpg`} />
 
-</div>
+          <div className="video-info">
+            <p>{mainVideo.title}</p>
+          </div>
+        </div>
 
-</div>
+        <div className="video-side">
 
-<button className="youtube-btn">
-VISIT YOUTUBE CHANNEL
-</button>
+          {sideVideos.map((video, index) => (
+            <div 
+              key={index}
+              className="video-item"
+              onClick={() => handleOpen(video.id)}
+            >
 
-</section>
+              <img src={`https://img.youtube.com/vi/${video.id}/hqdefault.jpg`} />
 
-)
+              <p>{video.title}</p>
+
+            </div>
+          ))}
+
+        </div>
+
+      </div>
+
+      <button 
+        className="youtube-btn"
+        onClick={() => window.open("https://www.youtube.com/@WongKarateKyokai-oficial", "_blank")}
+      >
+        Ver canal no YouTube
+      </button>
+
+    </section>
+
+  )
 
 }

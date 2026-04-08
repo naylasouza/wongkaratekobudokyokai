@@ -11,7 +11,7 @@ return(
 
 <Navbar/>
 
-<h1>Contratar o Sensei</h1>
+<h1>Contatar o Sensei</h1>
 
 <Schedule/>
 <ContactForm/>

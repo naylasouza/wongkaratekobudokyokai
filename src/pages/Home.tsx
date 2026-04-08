@@ -1,3 +1,6 @@
+import { useEffect } from "react"
+import { useLocation } from "react-router-dom"
+
 import Navbar from "../components/Navbar"
 import Hero from "../components/Hero"
 import FocusSection from "../components/FocusSection"
@@ -8,20 +11,38 @@ import About from "./About"
 
 export default function Home(){
 
-return(
+  const location = useLocation()
 
-<div>
+  useEffect(() => {
 
-<Navbar/>
-<Hero/>
-<About/>
-{/* <VideoLibrary/> */}
-{/* <FocusSection/>
-<HireSection/>
-<Footer/> */}
+    if(location.state?.scrollTo){
 
-</div>
+      const element = document.getElementById(location.state.scrollTo)
 
-)
+      if(element){
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: "smooth" })
+        }, 100)
+      }
+
+    }
+
+  }, [location])
+
+  return(
+
+    <div id="top">
+
+      <Navbar/>
+      <Hero/>
+      <About/>
+      <VideoLibrary/> 
+      {/* <FocusSection/> */}
+      <HireSection/>
+      <Footer/>
+
+    </div>
+
+  )
 
 }

@@ -1,4 +1,4 @@
-import { useState, useRef } from "react"
+import { useState, useRef, useEffect } from "react"
 import "../styles/about.css"
 
 import img1 from "../assets/images/sensei1.png"
@@ -10,6 +10,25 @@ export default function About(){
 
   const [open, setOpen] = useState(false)
   const aboutRef = useRef(null)
+
+  useEffect(() => {
+    const elements = document.querySelectorAll(".fade-in")
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if(entry.isIntersecting){
+            entry.target.classList.add("show")
+          }
+        })
+      },
+      { threshold: 0.2 }
+    )
+
+    elements.forEach(el => observer.observe(el))
+
+    return () => observer.disconnect()
+  }, [open])
 
   const handleClose = () => {
     setOpen(false)
@@ -26,14 +45,14 @@ export default function About(){
 
     <section id="about" className="about" ref={aboutRef}>
 
-      <h1 className="about-title">
+      <h1 className="about-title fade-in">
         A Jornada do Sensei Rogério Wong
       </h1>
 
 
-      <div className="about-block">
+      <div className="about-block fade-in">
 
-        <img src={img1} alt="Sensei Rogério Wong early career"/>
+        <img src={img1} className="img-1" alt="Sensei Rogério Wong early career"/>
 
         <div>
 
@@ -68,9 +87,9 @@ export default function About(){
 
       {open && (
         <>
-          <div className="about-block reverse">
+          <div className="about-block reverse fade-in">
 
-            <img src={img2} alt="Awards and recognitions"/>
+            <img src={img2} className="img-2" alt="Awards and recognitions"/>
 
             <div>
 
@@ -102,9 +121,9 @@ export default function About(){
 
 
 
-          <div className="about-block">
+          <div className="about-block fade-in">
 
-            <img src={img3} alt="Karate expertise"/>
+            <img src={img3} className="img-3" alt="Karate expertise"/>
 
             <div>
 
@@ -125,7 +144,7 @@ export default function About(){
 
 
 
-          <div className="about-block reverse">
+          <div className="about-block reverse fade-in">
 
             <img src={img4} alt="Education and teaching"/>
 
