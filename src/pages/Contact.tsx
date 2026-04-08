@@ -1,5 +1,5 @@
 import Navbar from "../components/Navbar"
-import Schedule from "../components/Schedule"
+// import Schedule from "../components/Schedule"
 import ContactForm from "../components/ContactForm"
 import Footer from "../components/Footer"
 
@@ -13,7 +13,7 @@ return(
 
 <h1>Contatar o Sensei</h1>
 
-<Schedule/>
+{/* <Schedule/> */}
 <ContactForm/>
 <Footer/>
 
